@@ -11,7 +11,7 @@ import { useStateContext } from '../contexts/ContextProvider';
 
 const Navbar = () => {
 
-  const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setscreenSize } = useStateContext();
+  const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setscreenSize, currentColor } = useStateContext();
 
   useEffect(() => {
     const handleResize = () =>
@@ -53,7 +53,7 @@ const Navbar = () => {
     <div className='flex justify-between p-2 md:mx-6 realtive'>
       <NavButton
         title="Menu"
-        color="blue"
+        color={currentColor}
         icon={<AiOutlineMenu />}
         customFunc={() =>
           setActiveMenu((prevActiveMenu) => !prevActiveMenu)
@@ -62,21 +62,21 @@ const Navbar = () => {
       <div className="flex">
         <NavButton
           title="Cart"
-          color="blue"
+          color={currentColor}
           icon={<FiShoppingCart />}
           customFunc={() => handleClick('cart')}
         />
         <NavButton
           title="Message"
           dotColor="#03C9D7"
-          color="blue"
+          color={currentColor}
           icon={<BsChatLeft />}
           customFunc={() => handleClick('chat')}
         />
         <NavButton
           title="Notification"
           dotColor="#03C9D7"
-          color="blue"
+          color={currentColor}
           icon={<RiNotification3Line />}
           customFunc={() => handleClick('notification')}
         />
